@@ -28,3 +28,10 @@ class Employee():
 
     def set_address(self,address):
         self.address = address
+
+    def __str__(self):
+        return 'Name:{}, Phone:{}, Home:{}, address:{}'\
+            .format(self.name,
+                    self.phone,
+                    self.home,
+                    self.address)
