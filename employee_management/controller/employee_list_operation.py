@@ -37,3 +37,29 @@ class Employee_list_operation():
                 else:
                     print('This number is not define.')
                     break
+
+    def update_employee(self, employee_list):
+        while True:
+            if len(employee_list) == 0:
+                print('There is no data to update.')
+                break
+
+            else:
+                print('Please choose update ID.')
+                self.show_employee(employee_list)
+                number = input('ID:')
+                if int(number) <= len(employee_list) - 1:
+                    print('Please write The information.')
+                    name = input('Name:')
+                    phone = input('Phone:')
+                    home = input('Home:')
+                    address = input('Address:')
+                    self.employee_list[int(number)].set_name(name)
+                    self.employee_list[int(number)].set_phone(phone)
+                    self.employee_list[int(number)].set_home(home)
+                    self.employee_list[int(number)].set_address(address)
+                    break
+
+                else:
+                    print('This number is not define.')
+                    break
