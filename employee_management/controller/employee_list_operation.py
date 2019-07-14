@@ -16,5 +16,24 @@ class Employee_list_operation():
 
 
     def show_employee(self, employee_list):
-        for employee in employee_list:
-            print(employee)
+        for i in range(len(employee_list)):
+            print('ID:', i, employee_list[i])
+
+
+    def delete_employee(self, employee_list):
+        while True:
+            if len(employee_list) == 0:
+                print('There is no data to delete.')
+                break
+
+            else:
+                print('Please choose delete ID.')
+                self.show_employee(employee_list)
+                number = input('ID:')
+                if int(number) <= len(employee_list) - 1:
+                    del employee_list[int(number)]
+                    break
+
+                else:
+                    print('This number is not define.')
+                    break
