@@ -9,7 +9,7 @@ class Employee():
         return self.name
 
     def set_name(self, name):
-        self.name =name
+        self.name = name
 
     def get_phone(self):
         return self.phone

@@ -1,24 +1,17 @@
 import employee_management.model.employee
 
-class Employee_list_operation():
+
+class EmployeeListOperation():
     def __init__(self):
         self.employee_list = []
 
-
-    def add_employee(self):
-        print('Please write your information.')
-        name = input('Name:')
-        phone = input('Phone:')
-        home = input('Home:')
-        address = input('Address:')
+    def add_employee(self, name, phone, home, address):
         emp = employee_management.model.employee.Employee(name, phone, home, address)
         self.employee_list.append(emp)
 
-
-    def show_employee(self, employee_list):
-        for i in range(len(employee_list)):
-            print('ID:', i, employee_list[i])
-
+    def show_employee(self):
+        for i in range(len(self.employee_list)):
+            print('ID:', i, self.employee_list[i])
 
     def delete_employee(self, employee_list):
         while True:
