@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
 # Create your views here.
 
-def index(request):
-    return HttpResponse('Hello World!')
+def first_page(request):
+    first_page_dict = {}
+    return render(request, 'employee_management/first_page.html', first_page_dict)
+
+def detail_page(request):
+    detail_page_dict = {}
+    return render(request, 'employee_management/detail_page.html', detail_page_dict)
