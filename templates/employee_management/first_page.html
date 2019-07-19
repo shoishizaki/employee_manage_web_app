@@ -28,6 +28,12 @@
   </head>
   <body>
     <h1>Welcome to employee management app</h1>
+    <div class="p-3 mb-2 bg-info text-white">
+      <h3>User Name</h3>
+    </div>
+    {% for name in names %}
+   　　<li>{{ name }}</li><br>
+    {% endfor %}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
