@@ -2,11 +2,29 @@
 {% block content %}
 
     <h1>Welcome to employee management app</h1>
-    <div class="p-3 mb-2 bg-info text-white">
       <h3>User Name</h3>
-    </div>
-    {% for name in names %}
-   　　<li>{{ name }}</li><br>
-    {% endfor %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Home</th>
+          <th scope="col">Address</th>
+        </tr>
+      </thead>
+      {% for employee in employee_list %}
+      <tbody>
+        <tr>
+          <th scope="row">{{ id }}</th>
+          <td>{{ employee.get_name }}</td>
+          <td>{{ employee.get_phone }}</td>
+          <td>{{ employee.get_home }}</td>
+          <td>{{ employee.get_address }}</td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+   　　
 
 {% endblock %}
