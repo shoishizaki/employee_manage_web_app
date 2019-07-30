@@ -1,15 +1,11 @@
 from django.shortcuts import render
 
-from employee_management.model.employee import Employee
+from employee_management.model.employee_model import Employee
 # Create your views here.
 
 
 def first_page(request):
-    employee_list = []
-    employee = Employee('sho', '784396', 'osaka', 'aichi')
-    employee_2 = Employee('masaya', '76854789', 'osaka', 'kyoto')
-    employee_list.append(employee)
-    employee_list.append(employee_2)
+    employee_list = Employee.objects.all()
     first_page_dict = {'employee_list':employee_list}
     return render(request, 'employee_management/first_page.html', first_page_dict)
 
