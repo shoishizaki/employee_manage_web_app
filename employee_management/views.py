@@ -32,6 +32,7 @@ def add_page(request):
             home=employee.home,
             address=employee.address,
         )
-        return redirect('employee_management/first_page.html')
+        return redirect('first_page')
     return render(request, 'employee_management/add_function.html', {'form':form})
+
 
