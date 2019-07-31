@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 from employee_management.model.employee_model import Employee
+from .forms import AddForm
 # Create your views here.
 
 
@@ -15,5 +17,22 @@ def detail_page(request):
     return render(request, 'employee_management/detail_page.html', detail_page_dict)
 
 
-def add_function(request):
-    return render(request, 'employee_management/add_function.html')
+def add_page(request):
+    form = AddForm(request.POST or None)
+    if form.is_valid():
+        employee = Employee()
+        employee.name = form.cleaned_data['name']
+        employee.phone = form.cleaned_data['phone']
+        employee.home = form.cleaned_data['home']
+        employee.address = form.cleaned_data['address']
+
+        Employee.objects.create(
+            name=employee.name,
+            phone=employee.phone,
+            home=employee.home,
+            address=employee.address,
+        )
+        return redirect('first_page')
+    return render(request, 'employee_management/add_function.html', {'form':form})
+
+
