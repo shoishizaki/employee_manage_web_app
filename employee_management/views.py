@@ -19,6 +19,8 @@ def detail_page(request):
 
 def add_page(request):
     form = AddForm(request.POST or None)
+    employee_list = Employee.objects.all()
+    add_page_dict = {'employee_list': employee_list, 'form':form}
     if form.is_valid():
         employee = Employee()
         employee.name = form.cleaned_data['name']
@@ -33,7 +35,7 @@ def add_page(request):
             address=employee.address,
         )
         return redirect('first_page')
-    return render(request, 'employee_management/add_function.html', {'form':form})
+    return render(request, 'employee_management/add_function.html', add_page_dict)
 
 
 def delete_page(request, pk):
