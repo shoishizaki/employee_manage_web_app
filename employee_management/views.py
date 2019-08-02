@@ -36,3 +36,7 @@ def add_page(request):
     return render(request, 'employee_management/add_function.html', {'form':form})
 
 
+def delete_page(request, pk):
+    date = Employee.objects.get(pk=pk)
+    date.delete()
+    return redirect('first_page')
